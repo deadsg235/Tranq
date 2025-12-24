@@ -3,11 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    domains: ['localhost'],
-  },
+  transpilePackages: ['three'],
   webpack: (config) => {
-    config.externals.push('pino-pretty', 'lokijs', 'encoding');
+    config.externals = [...config.externals, { canvas: 'canvas' }];
     return config;
   },
 }

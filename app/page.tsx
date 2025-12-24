@@ -3,7 +3,6 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars } from '@react-three/drei'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { NeuralArena } from '../components/NeuralArena'
 import { AgentHierarchy } from '../components/AgentHierarchy'
 import { TokenInterface } from '../components/TokenInterface'
@@ -34,7 +33,9 @@ export default function Home() {
               <div className="text-xs text-gray-400">Hardcore AI Hierarchy System</div>
             </div>
           </div>
-          <ConnectButton />
+          <button className="bg-tranq-600 hover:bg-tranq-700 text-white font-bold py-2 px-4 rounded-lg">
+            Connect Wallet
+          </button>
         </header>
 
         {/* Main Content Grid */}
