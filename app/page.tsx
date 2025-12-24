@@ -1,26 +1,19 @@
 'use client'
 
-import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
-import { NeuralArena } from '../components/NeuralArena'
+import dynamic from 'next/dynamic'
 import { AgentHierarchy } from '../components/AgentHierarchy'
 import { TokenInterface } from '../components/TokenInterface'
 import { BattleStats } from '../components/BattleStats'
 
+const NeuralArenaCanvas = dynamic(() => import('../components/NeuralArenaCanvas'), {
+  ssr: false,
+  loading: () => <div className="canvas-container bg-neural-100" />
+})
+
 export default function Home() {
   return (
     <main className="min-h-screen relative">
-      {/* 3D Background Arena */}
-      <div className="canvas-container">
-        <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-          <Suspense fallback={null}>
-            <Stars radius={300} depth={60} count={20000} factor={7} saturation={0} fade />
-            <NeuralArena />
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-          </Suspense>
-        </Canvas>
-      </div>
+      <NeuralArenaCanvas />
 
       {/* UI Overlay */}
       <div className="relative z-10 p-6">
