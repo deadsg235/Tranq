@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-neural-100 text-white;
     font-feature-settings: "rlig" 1, "calt" 1;
